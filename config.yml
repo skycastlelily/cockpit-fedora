@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+
+# host infos
+host_string: yourip
+host_user: root
+host_pass: yourpasswd
+
+# manually configured selenium hub
+selenium_hub: ""
+
+# avocado config
+avocado_results_dir: /home/yourname/avocado/
+
+# versions of pkg/sys under test
+test_pkg_ver: test
+test_sys_ver: test
+
+# the following is used for storage test
+#nfs_address:your nfs server address 
+#server_path: your nfs server path
+#local_path: local mount path 
+#edit_path: remount local path
+
