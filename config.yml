@@ -17,8 +17,8 @@ test_pkg_ver: test
 test_sys_ver: test
 
 # the following is used for storage test
-#nfs_address:your nfs server address 
-#server_path: your nfs server path
-#local_path: local mount path 
-#edit_path: remount local path
+nfs_address: your nfs server address 
+server_path: your nfs server path
+local_path: local mount path 
+edit_path: remount local path
 
