@@ -13,7 +13,7 @@ class Machine(object):
         self.host_user = host_user
         self.host_passwd = host_passwd
 
-    def execute(self, cmd, timeout=2, raise_exception=True):
+    def execute(self, cmd, timeout=60, raise_exception=True):
         with settings(
                 host_string=self.host_string,
                 user=self.host_user,
