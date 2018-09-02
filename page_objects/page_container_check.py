@@ -26,21 +26,32 @@ class DockerCheckPage(SeleniumTest):
 
     def start_container(self):
         self.hover_and_click(self.DOCKER_START_BUTTON)
-        sleep(self.WAIT_DOCKER_START)
+        sleep(self.WAIT_DOCKER_START) 
+   
+    def docker_pull_image(self):
+        cmd = "docker pull nginx"
+        self.host.execute(cmd)
+
+    def docker_rm_image(self):
+        cmd = "docker rmi nginx"
+        self.host.execute(cmd)
+
     def run_container_cmd(self):
-        cmd = "docker run -it --name='extending' fedora /bin/bash &"
+        cmd = "docker run --name extending -d nginx"
         self.host.execute(cmd)
-        cmd = "docker run -it --name='flash' fedora ls"
-        self.host.execute(cmd)
-
-    def stop_container_cmd(self):
-        cmd = 'docker stop extending '
+        sleep(2)
+        cmd = "docker run -it --name flash fedora ls"
         self.host.execute(cmd)
 
-    def delete_container_cmd(self):
-        cmd = 'docker rm extending '
+    def stop_container_cmd(self,name_id="extending"):
+        cmd = " docker stop '%s' " % name_id
         self.host.execute(cmd)
 
+    def delete_container_cmd(self,name_id="extending"):
+        cmd = " docker rm '%s' " % name_id
+        self.host.execute(cmd)
+
+   
     def run_container_ui(self,command='/bin/bash'):
         self.hover_and_click(self.DOCKER_RUN_BUTTON)
         sleep(2)
