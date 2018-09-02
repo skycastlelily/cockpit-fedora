@@ -17,6 +17,7 @@ class TestDockerCheck(DockerCheckPage):
     container_running_text = "//td[text()='running']"
     container_exited_text = "//td[text()='exited']" 
     image_pull_name = "//th[contains(text(), 'nginx')]"
+    
     def test_startcontainer(self):
         self.start_container()
         self.assert_element_visible(self.CONTAINER_FILTER)
@@ -38,7 +39,8 @@ class TestDockerCheck(DockerCheckPage):
         sleep(3)
         self.assert_element_visible(self.container_running_text)
         self.assert_element_visible(self.container_exited_text)
-        def test_cmd_stop(self):
+    
+    def test_cmd_stop(self):
         self.stop_container_cmd()
         self.assert_element_invisible(self.container_running_text)
 
